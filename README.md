@@ -5,12 +5,33 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel)
 
-A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. At the moment this contains:
+A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. Aim is to simplify building crawler applications or adding a crawler to an existing Laravel project. At the moment the following helper classes are implemented:
 
-- A queue-driver to use Laravel cache to store the queue information.
-- Observers to log crawl events.
+## Cache Crawl Queue
 
-Planned functionality:
+The [CacheCrawlQueue](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Queues/CacheCrawlQueue.php) allows use the pre-configured Cache in Laravel to store the queue. It stores any actions performed on the queue directly to avoid the need to manually store the queue. You can add it directly to your crawler:
+
+```php
+Crawler::create()
+    ->setCrawlQueue(new \Spekulatius\SpatieCrawlerToolkit\Queues\CacheCrawlQueue($url))
+    ->startCrawling($url);
+```
+
+With this you can stop the crawl and restart at any time. This requires a cache-driver being configured in your `.env` file.
+
+## Crawl Logger
+
+The [Crawl Logger](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Observers/CrawlLogger.php) is an observer you can add to your crawler to enable logging of crawl events:
+
+```php
+Crawler::create()
+    ->setCrawlObserver(new \Spekulatius\SpatieCrawlerToolkit\Observers\CrawlLogger)
+    ->startCrawling($url);
+```
+
+You can export the configuration (see below) to tweak which events are logged.
+
+## Planned functionality
 
 - Events to react to crawl events.
 - Batched crawling using Laravel Queues.
