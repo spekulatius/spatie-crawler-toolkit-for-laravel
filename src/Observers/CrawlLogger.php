@@ -15,7 +15,7 @@ class CrawlLogger extends SpatieCrawlObserver
      */
     public function willCrawl(UriInterface $url)
     {
-        if (in_array(__METHOD__, config('crawl_observers.log'))) {
+        if (in_array(__METHOD__, config('crawler.log'))) {
             Log::debug('Crawler: ' . $url . ' will be crawled.');
         }
     }
@@ -32,7 +32,7 @@ class CrawlLogger extends SpatieCrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        if (in_array(__METHOD__, config('crawl_observers.log'))) {
+        if (in_array(__METHOD__, config('crawler.log'))) {
             if ($foundOnUrl === null) {
                 Log::debug('Crawler: ' . $url . ' crawled.');
             } else {
@@ -53,7 +53,7 @@ class CrawlLogger extends SpatieCrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        if (in_array(__METHOD__, config('crawl_observers.log'))) {
+        if (in_array(__METHOD__, config('crawler.log'))) {
             Log::debug('Crawler: ' . $url . ' failed: ' . $requestException->getMessage());
         }
     }
@@ -63,7 +63,7 @@ class CrawlLogger extends SpatieCrawlObserver
      */
     public function finishedCrawling()
     {
-        if (in_array(__METHOD__, config('crawl_observers.log'))) {
+        if (in_array(__METHOD__, config('crawler.log'))) {
             Log::debug('Crawler: Finished');
         }
     }
