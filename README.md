@@ -8,13 +8,14 @@
 A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. At the moment this contains:
 
 - A queue-driver to use Laravel cache to store the queue information.
+- Observers to log crawl events.
 
 Planned functionality:
 
 - Events to react to crawl events.
-- Observers to log crawl events.
 - Batched crawling using Laravel Queues.
 
+For any suggestions on how to enhance this, please raise an issue.
 
 ## Requirements & Install
 
