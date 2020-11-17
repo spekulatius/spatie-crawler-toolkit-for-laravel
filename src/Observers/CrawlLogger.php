@@ -36,7 +36,7 @@ class CrawlLogger extends SpatieCrawlObserver
             if ($foundOnUrl === null) {
                 Log::debug('Crawler: ' . $url . ' crawled.');
             } else {
-                Log::debug('Crawler: ' . $url . ' redirected to ' . $foundOnUrl);
+                Log::debug('Crawler: ' . $url . ' crawled, found on ' . $foundOnUrl);
             }
         }
     }

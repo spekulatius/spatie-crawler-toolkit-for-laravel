@@ -28,13 +28,13 @@ class CacheCrawlQueue extends ArrayCrawlQueue implements CrawlQueue
      * Defines an instance of the CacheQueue
      *
      * @param string $identifier
-     * @param int $ttl
+     * @param ?int $ttl
      */
-    public function __construct(string $identifier, int $ttl = 3600)
+    public function __construct(string $identifier, ?int $ttl)
     {
         // Store the information for later usage.
         $this->base_cache_key = md5($identifier);
-        $this->ttl = $ttl;
+        $this->ttl = !is_null($ttl) ? $ttl : config('crawler.cache_ttl', 3600);
 
         // Load the previous data, if any.
         $this->urls = Cache::get($this->base_cache_key . '_urls', []);
