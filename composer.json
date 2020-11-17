@@ -1,0 +1,51 @@
+{
+    "name": "spekulatius/spatie-crawler-toolkit-for-laravel",
+    "description": "Handy classes for Spatie's crawler when using it with Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Thaleikis",
+            "homepage": "https://releasecandidate.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^6.0|^7.0|^8.0",
+        "spatie/crawler": "dev-master"
+    },
+    "require-dev": {
+        "symfony/thanks": "^1.2",
+        "phpunit/phpunit": "^7.0|^8.0",
+        "orchestra/testbench": "*",
+        "orchestra/database": "*",
+        "illuminate/support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spekulatius\\SpatieCrawlerToolkit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spekulatius\\SpatieCrawlerToolkit\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spekulatius\\SpatieCrawlerToolkit\\ToolkitServiceProvider"
+            ]
+        }
+    }
+}
