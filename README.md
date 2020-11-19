@@ -48,6 +48,12 @@ Crawler::create()
     ->startCrawling($url);
 ```
 
+An optional identifier can be passed to the crawl events to distinguish between different crawls:
+
+```php
+$event_observer = new \Spekulatius\SpatieCrawlerToolkit\Observers\CrawlEvents('my-crawl');
+```
+
 ## Planned functionality
 
 - Batched crawling using Laravel Queues.

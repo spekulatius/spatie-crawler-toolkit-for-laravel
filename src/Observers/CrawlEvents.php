@@ -15,13 +15,26 @@ use Spatie\Crawler\CrawlObserver as SpatieCrawlObserver;
 class CrawlEvents extends SpatieCrawlObserver
 {
     /**
+     * @var string
+     */
+    protected $identifier = null;
+
+    /**
+     * @param string|null $identifier
+     */
+    public function __construct(string $identifier = null)
+    {
+        $this->identifier = $identifier;
+    }
+
+    /**
      * Triggered before a new URL is crawled.
      *
      * @param \Psr\Http\Message\UriInterface $url
      */
     public function willCrawl(UriInterface $url)
     {
-        event(new WillCrawl($url));
+        event(new WillCrawl($this->identifier, $url));
     }
 
     /**
@@ -36,7 +49,7 @@ class CrawlEvents extends SpatieCrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        event(new Crawled($url, $response, $foundOnUrl));
+        event(new Crawled($this->identifier, $url, $response, $foundOnUrl));
     }
 
     /**
@@ -51,7 +64,7 @@ class CrawlEvents extends SpatieCrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        event(new CrawlFailed($url, $requestException, $foundOnUrl));
+        event(new CrawlFailed($this->identifier, $url, $requestException, $foundOnUrl));
     }
 
     /**
@@ -59,6 +72,6 @@ class CrawlEvents extends SpatieCrawlObserver
      */
     public function finishedCrawling()
     {
-        event(new FinishedCrawling());
+        event(new FinishedCrawling($this->identifier));
     }
 }

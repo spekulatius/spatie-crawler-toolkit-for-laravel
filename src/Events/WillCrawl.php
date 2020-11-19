@@ -5,11 +5,15 @@ namespace Spekulatius\SpatieCrawlerToolkit\Events;
 use Psr\Http\Message\UriInterface;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
 
 class WillCrawl
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, SerializesModels;
+
+    /**
+     * @var string|null
+     */
+    public $identifier;
 
     /**
      * @var \Psr\Http\Message\UriInterface
@@ -17,11 +21,13 @@ class WillCrawl
     public $url;
 
     /**
+     * @param string|null $identifier
      * @param \Psr\Http\Message\UriInterface $url
      * @return void
      */
-    public function __construct(UriInterface $url)
+    public function __construct(?string $identifier = null, UriInterface $url)
     {
+        $this->identifier = $identifier;
         $this->url = $url;
     }
 }

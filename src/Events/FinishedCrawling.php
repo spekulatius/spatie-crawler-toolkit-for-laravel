@@ -8,5 +8,19 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 
 class FinishedCrawling
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, SerializesModels;
+
+    /**
+     * @var string|null
+     */
+    public $identifier;
+
+    /**
+     * @param string|null $identifier
+     * @return void
+     */
+    public function __construct(?string $identifier = null)
+    {
+        $this->identifier = $identifier;
+    }
 }
