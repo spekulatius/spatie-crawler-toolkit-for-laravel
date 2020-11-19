@@ -2,30 +2,30 @@
 
 namespace Spekulatius\SpatieCrawlerToolkit\Observers;
 
-use Spekulatius\SpatieCrawlerToolkit\Events\CrawlFinished;
-use Spekulatius\SpatieCrawlerToolkit\Events\CrawlingUrl;
-use Spekulatius\SpatieCrawlerToolkit\Events\UrlCrawled;
-use Spekulatius\SpatieCrawlerToolkit\Events\UrlNotFound;
-use Spekulatius\SpatieCrawlerToolkit\Events\FetchFailed;
+use Spekulatius\SpatieCrawlerToolkit\Events\WillCrawl;
+use Spekulatius\SpatieCrawlerToolkit\Events\Crawled;
+use Spekulatius\SpatieCrawlerToolkit\Events\CrawlFailed;
+use Spekulatius\SpatieCrawlerToolkit\Events\FinishedCrawling;
 
-use GuzzleHttp\Exception\RequestException;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObserver as SpatieCrawlObserver;
 
 class CrawlEvents extends SpatieCrawlObserver
 {
     /**
+     * Triggered before a new URL is crawled.
+     *
      * @param \Psr\Http\Message\UriInterface $url
      */
     public function willCrawl(UriInterface $url)
     {
-        // Emit an event to notify about the action
-        event(new CrawlingUrl($url));
+        event(new WillCrawl($url));
     }
 
     /**
-     * Called when the crawler has crawled the given url successfully.
+     * Trigger when the crawler has crawled the given url successfully.
      *
      * @param \Psr\Http\Message\UriInterface $url
      * @param \Psr\Http\Message\ResponseInterface $response
@@ -36,12 +36,11 @@ class CrawlEvents extends SpatieCrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        // add more in here...
-        event(new UrlCrawled($url));
+        event(new Crawled($url, $response, $foundOnUrl));
     }
 
     /**
-     * Called when the crawler had a problem crawling the given url.
+     * Trigger when the crawler had a problem crawling the given url.
      *
      * @param \Psr\Http\Message\UriInterface $url
      * @param \GuzzleHttp\Exception\RequestException $requestException
@@ -52,16 +51,14 @@ class CrawlEvents extends SpatieCrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        // add more in here...
-        event(new UrlCrawled($url));
+        event(new CrawlFailed($url, $requestException, $foundOnUrl));
     }
 
     /**
-     * Called when the crawl has ended.
+     * Trigger when the crawl has ended.
      */
     public function finishedCrawling()
     {
-        // Emit an event to notify about the action
-        event(new CrawlFinished());
+        event(new FinishedCrawling());
     }
 }

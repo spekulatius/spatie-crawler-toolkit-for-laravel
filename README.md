@@ -31,9 +31,25 @@ Crawler::create()
 
 You can export the configuration (see below) to tweak which events are logged.
 
+## Crawl Events
+
+The toolkit contains an observer to send you Laravel events allowing you to react to crawl events. This covers the following events:
+
+- [WillCrawl](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Events/WillCrawl.php)
+- [Crawled](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Events/Crawled.php)
+- [CrawlFailed](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Events/CrawlFailed.php)
+- [FinishedCrawling](https://github.com/spekulatius/spatie-crawler-toolkit-for-laravel/blob/master/src/Events/FinishedCrawling.php)
+
+By default, no events are emitted. To enable events, you will need to add the event observer to your crawler:
+
+```
+Crawler::create()
+    ->setCrawlObserver(new \Spekulatius\SpatieCrawlerToolkit\Observers\CrawlEvents)
+    ->startCrawling($url);
+```
+
 ## Planned functionality
 
-- Events to react to crawl events.
 - Batched crawling using Laravel Queues.
 
 For any suggestions on how to enhance this, please raise an issue.
