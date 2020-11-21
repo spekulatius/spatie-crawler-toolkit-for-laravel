@@ -10,7 +10,7 @@ use Spekulatius\SpatieCrawlerToolkit\Events\FinishedCrawling;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
-use Spatie\Crawler\CrawlObserver as SpatieCrawlObserver;
+use Spatie\Crawler\CrawlObservers\CrawlObserver as SpatieCrawlObserver;
 
 class CrawlEvents extends SpatieCrawlObserver
 {
