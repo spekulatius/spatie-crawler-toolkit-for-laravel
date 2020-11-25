@@ -98,7 +98,7 @@ class CacheCrawlQueue extends ArrayCrawlQueue implements CrawlQueue
         $this->writeToCache();
     }
 
-    public function getFirstPendingUrl(): ?CrawlUrl
+    public function getPendingUrl(): ?CrawlUrl
     {
         // Any URLs left?
         if (count($this->pendingUrls) > 0) {
