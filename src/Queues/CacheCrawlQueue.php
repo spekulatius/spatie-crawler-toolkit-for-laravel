@@ -97,4 +97,18 @@ class CacheCrawlQueue extends ArrayCrawlQueue implements CrawlQueue
 
         $this->writeToCache();
     }
+
+    public function getFirstPendingUrl(): ?CrawlUrl
+    {
+        // Any URLs left?
+        if (count($this->pendingUrls) > 0) {
+            // Get a random ID, the key for it and return the URLs.
+            $random_id = random_int(0, count($this->pendingUrls) - 1);
+            $key = array_keys($this->pendingUrls)[$random_id];
+
+            return $this->pendingUrls[$key];
+        }
+
+        return null;
+    }
 }
