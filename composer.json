@@ -14,7 +14,7 @@
     "require": {
         "php": "^7.2",
         "laravel/framework": "^6.0|^7.0|^8.0",
-        "spatie/crawler": "dev-master"
+        "spatie/crawler": "v6.x-dev"
     },
     "require-dev": {
         "symfony/thanks": "^1.2",
