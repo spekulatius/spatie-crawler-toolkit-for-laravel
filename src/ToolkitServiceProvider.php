@@ -24,7 +24,7 @@ class ToolkitServiceProvider extends ServiceProvider
     public function register()
     {
         // Load the configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/crawler.php', 'crawler');
+        $this->mergeConfigFrom(__DIR__.'/../config/crawler-toolkit.php', 'crawler-toolkit');
     }
 
     /**
@@ -36,7 +36,7 @@ class ToolkitServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/crawler.php' => config_path('crawler.php'),
+                __DIR__ . '/../config/crawler-toolkit.php' => config_path('crawler-toolkit.php'),
             ], 'crawler-toolkit-config');
         }
     }
