@@ -33,11 +33,10 @@ class CrawlLogger extends SpatieCrawlObserver
         ?UriInterface $foundOnUrl = null
     ) {
         if (in_array(__FUNCTION__, config('crawler-toolkit.log'))) {
-            if ($foundOnUrl === null) {
-                Log::debug('Crawler: ' . $url . ' crawled.');
-            } else {
-                Log::debug('Crawler: ' . $url . ' crawled, found on ' . $foundOnUrl);
-            }
+            Log::debug(
+                'Crawler: ' . $url . ' crawled' .
+                (($foundOnUrl === null) ? '.' : ', found on ' . $foundOnUrl)
+            );
         }
     }
 
