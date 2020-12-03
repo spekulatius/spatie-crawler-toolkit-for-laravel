@@ -17,20 +17,11 @@
         "spatie/crawler": "^6.0.0"
     },
     "require-dev": {
-        "symfony/thanks": "^1.2",
-        "phpunit/phpunit": "^7.0|^8.0",
-        "orchestra/testbench": "*",
-        "orchestra/database": "*",
-        "illuminate/support": "*"
+        "symfony/thanks": "^1.2"
     },
     "autoload": {
         "psr-4": {
             "Spekulatius\\SpatieCrawlerToolkit\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Spekulatius\\SpatieCrawlerToolkit\\Tests\\": "tests/"
         }
     },
     "config": {
