@@ -1,6 +1,6 @@
 # Spatie Crawler Toolkit for Laravel
 
-## This is work is progress 🚧️ Use at own risk
+## PHP 8 should work, but is not extensively tested. Please report any issues you might find!
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel)
