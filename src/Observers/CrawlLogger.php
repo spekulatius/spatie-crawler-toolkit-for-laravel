@@ -13,7 +13,7 @@ class CrawlLogger extends SpatieCrawlObserver
     /**
      * @param \Psr\Http\Message\UriInterface $url
      */
-    public function willCrawl(UriInterface $url)
+    public function willCrawl(UriInterface $url): void
     {
         if (in_array(__FUNCTION__, config('crawler-toolkit.log'))) {
             Log::debug('Crawler: ' . $url . ' will be crawled.');
@@ -31,7 +31,7 @@ class CrawlLogger extends SpatieCrawlObserver
         UriInterface $url,
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
-    ) {
+    ): void {
         if (in_array(__FUNCTION__, config('crawler-toolkit.log'))) {
             Log::debug(
                 'Crawler: ' . $url . ' crawled' .
@@ -51,7 +51,7 @@ class CrawlLogger extends SpatieCrawlObserver
         UriInterface $url,
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
-    ) {
+    ): void {
         if (in_array(__FUNCTION__, config('crawler-toolkit.log'))) {
             Log::debug('Crawler: ' . $url . ' failed: ' . $requestException->getMessage());
         }
@@ -60,7 +60,7 @@ class CrawlLogger extends SpatieCrawlObserver
     /**
      * Called when the crawl has ended.
      */
-    public function finishedCrawling()
+    public function finishedCrawling(): void
     {
         if (in_array(__FUNCTION__, config('crawler-toolkit.log'))) {
             Log::debug('Crawler: Finished');
