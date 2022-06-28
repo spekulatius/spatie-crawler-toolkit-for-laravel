@@ -42,7 +42,7 @@ The toolkit contains an observer to send you Laravel events allowing you to reac
 
 By default, no events are emitted. To enable events, you will need to add the event observer to your crawler:
 
-```
+```php
 $event_observer = new \Spekulatius\SpatieCrawlerToolkit\Observers\CrawlEvents;
 
 Crawler::create()
