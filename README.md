@@ -5,7 +5,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel)
 
-A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. Aim is to simplify building crawler applications or adding a crawler to an existing Laravel project. At the moment the following helper classes are implemented:
+A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. Aim is to simplify building crawler applications or adding a crawler to an existing Laravel project. It can be conveniently integrated into [PHP Scraper](https://github.com/spekulatius/phpscraper), for example. At the moment the following helper classes are implemented:
 
 ## Cache Crawl Queue
 
