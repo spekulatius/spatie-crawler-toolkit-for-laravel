@@ -1,6 +1,6 @@
 # Spatie Crawler Toolkit for Laravel
 
-## PHP 8 should work, but is not extensively tested. Please report any issues you might find!
+## Laravel 9 should work, but is not extensively tested. Please report any issues you might find!
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel)
@@ -66,7 +66,7 @@ For any suggestions on how to enhance this, please raise an issue.
 
 ### Requirements
 
-- Laravel 6, 7, or 8.
+- Laravel 6, 7, 8, 9. Laravel 9 is still in testing. Please report any issues.
 - Cache and Log configured in Laravel.
 
 ### Installation
@@ -81,11 +81,9 @@ Optionally, you can publish the configuration file:
 php artisan vendor:publish --tag=crawler-toolkit-config
 ```
 
-
 ## Contributing
 
 Please raise a PR or issue.
-
 
 ## License
 
