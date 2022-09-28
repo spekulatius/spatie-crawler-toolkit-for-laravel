@@ -1,9 +1,9 @@
-# Spatie Crawler Toolkit for Laravel
+# Spatie Crawler Toolkit for Laravel 
 
 ## Laravel 9 should work, but is not extensively tested. Please report any issues you might find!
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/spekulatius/spatie-crawler-toolkit-for-laravel.svg?style=flat-square)](https://packagist.org/packages/spekulatius/spatie-crawler-toolkit-for-laravel) [![Awesome PHP crawler](https://awesome.re/badge.svg)](https://github.com/spekulatius/awesome-php-scrapers-and-crawlers)
 
 A set of classes to use [Spatie's crawler](https://github.com/spatie/crawler) with Laravel. Aim is to simplify building crawler applications or adding a crawler to an existing Laravel project. It can be conveniently integrated into [PHP Scraper](https://github.com/spekulatius/phpscraper), for example. At the moment the following helper classes are implemented:
 
