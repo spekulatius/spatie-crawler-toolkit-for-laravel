@@ -32,7 +32,7 @@ class CrawlEvents extends SpatieCrawlObserver
      *
      * @param \Psr\Http\Message\UriInterface $url
      */
-    public function willCrawl(UriInterface $url)
+    public function willCrawl(UriInterface $url): void
     {
         event(new WillCrawl($this->identifier, $url));
     }
@@ -48,7 +48,7 @@ class CrawlEvents extends SpatieCrawlObserver
         UriInterface $url,
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
-    ) {
+    ): void {
         event(new Crawled($this->identifier, $url, $response, $foundOnUrl));
     }
 
@@ -63,14 +63,14 @@ class CrawlEvents extends SpatieCrawlObserver
         UriInterface $url,
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
-    ) {
+    ): void {
         event(new CrawlFailed($this->identifier, $url, $requestException, $foundOnUrl));
     }
 
     /**
      * Trigger when the crawl has ended.
      */
-    public function finishedCrawling()
+    public function finishedCrawling(): void
     {
         event(new FinishedCrawling($this->identifier));
     }
